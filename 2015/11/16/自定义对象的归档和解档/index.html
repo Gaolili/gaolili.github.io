@@ -3,35 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>iOS UINavigationBar 下方的黑线去掉 | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="想要的效果图：
-可是现在的实现是这样的：
-我们需要在 - (void)viewWillAppear:(BOOL)animate方法中设置
-- (void)viewWillAppear:(BOOL)animated{
-[super viewWillAppear:animated];
-[self.navigationController.navigationBar setBackgroundImage">
+  <meta name="description" content="title: 自定义对象的归档和解档date: 2015-11-16 16:11:21
+
+自定义对象进行归档必须实现NSCoding协议，在这个协议中必须实现两个方法
+ -(void)encodeWithCoder:(NSCoder )aCoder;通过给定的Archiver对消息接收者进行编码；-(id)initWithCoder:(NSCoder )aDecoder;从一个给定的Unarchi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS UINavigationBar 下方的黑线去掉">
-<meta property="og:url" content="http://yoursite.com/2015/11/12/iOS-UINavigationBar-下方的黑线去掉/index.html">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2015/11/16/自定义对象的归档和解档/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="想要的效果图：
-可是现在的实现是这样的：
-我们需要在 - (void)viewWillAppear:(BOOL)animate方法中设置
-- (void)viewWillAppear:(BOOL)animated{
-[super viewWillAppear:animated];
-[self.navigationController.navigationBar setBackgroundImage">
-<meta property="og:image" content="http://yoursite.com/https:/gaolili.github.io/img/ios_img_2.png">
-<meta property="og:image" content="http://yoursite.com/https:/gaolili.github.io/img/ios_img_1.png">
-<meta property="og:updated_time" content="2015-11-12T06:04:53.000Z">
+<meta property="og:description" content="title: 自定义对象的归档和解档date: 2015-11-16 16:11:21
+
+自定义对象进行归档必须实现NSCoding协议，在这个协议中必须实现两个方法
+ -(void)encodeWithCoder:(NSCoder )aCoder;通过给定的Archiver对消息接收者进行编码；-(id)initWithCoder:(NSCoder )aDecoder;从一个给定的Unarchi">
+<meta property="og:updated_time" content="2015-11-16T08:53:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS UINavigationBar 下方的黑线去掉">
-<meta name="twitter:description" content="想要的效果图：
-可是现在的实现是这样的：
-我们需要在 - (void)viewWillAppear:(BOOL)animate方法中设置
-- (void)viewWillAppear:(BOOL)animated{
-[super viewWillAppear:animated];
-[self.navigationController.navigationBar setBackgroundImage">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="title: 自定义对象的归档和解档date: 2015-11-16 16:11:21
+
+自定义对象进行归档必须实现NSCoding协议，在这个协议中必须实现两个方法
+ -(void)encodeWithCoder:(NSCoder )aCoder;通过给定的Archiver对消息接收者进行编码；-(id)initWithCoder:(NSCoder )aDecoder;从一个给定的Unarchi">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -210,11 +202,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-iOS-UINavigationBar-下方的黑线去掉" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-自定义对象的归档和解档" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/12/iOS-UINavigationBar-下方的黑线去掉/" class="article-date">
-  	<time datetime="2015-11-12T06:04:53.000Z" itemprop="datePublished">2015-11-12</time>
+      <a href="/2015/11/16/自定义对象的归档和解档/" class="article-date">
+  	<time datetime="2015-11-16T08:53:01.000Z" itemprop="datePublished">2015-11-16</time>
 </a>
     </div>
   
@@ -223,33 +215,83 @@
       <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      iOS UINavigationBar 下方的黑线去掉
-    </h1>
-  
-
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-        
-
-        <div class="clearfix"></div>
-      </div>
-      
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>想要的效果图：<br><img src="https:/gaolili.github.io/img/ios_img_2.png" alt="ios_img_1 icon"></p>
-<p>可是现在的实现是这样的：<br><img src="https:/gaolili.github.io/img/ios_img_1.png" alt="ios_img_2 icon"></p>
-<p>我们需要在 - (void)viewWillAppear:(BOOL)animate方法中设置</p>
-<pre><code><span class="tag">-</span> (void)<span class="tag">viewWillAppear</span>:(BOOL)<span class="tag">animated</span>{
-<span class="attr_selector">[super viewWillAppear:animated]</span>;
-<span class="attr_selector">[self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc]</span><span class="tag">init</span>] <span class="tag">forBarPosition</span><span class="pseudo">:UIBarPositionAny</span> <span class="tag">barMetrics</span><span class="pseudo">:UIBarMetricsDefault</span>];
-<span class="attr_selector">[self.navigationController.navigationBar setShadowImage:[[UIImage alloc]</span> <span class="tag">init</span>]];
+        <p>title: 自定义对象的归档和解档<br>date: 2015-11-16 16:11:21</p>
+<blockquote>
+<p>自定义对象进行归档必须实现NSCoding协议，在这个协议中必须实现两个方法</p>
+<p> -(void)encodeWithCoder:(NSCoder <em>)aCoder;通过给定的Archiver对消息接收者进行编码；<br>-(id)initWithCoder:(NSCoder </em>)aDecoder;从一个给定的Unarchiver的数据返回一个初始化对象</p>
+</blockquote>
+<pre><code><span class="preprocessor">#import <span class="title">&lt;Foundation/Foundation.h&gt;</span></span>
+
+<span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> : <span class="title">NSObject</span> &lt;<span class="title">NSCoding</span>&gt;</span>
+
+    <span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>)<span class="built_in">NSString</span>  * name;
+    <span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>)<span class="built_in">NSString</span>  * address;
+    <span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>)<span class="built_in">NSInteger</span>   age;
+
+ <span class="keyword">@end</span>
+
+ <span class="preprocessor">#import <span class="title">"Person.h"</span></span>
+
+<span class="class"><span class="keyword">@implementation</span> <span class="title">Person</span></span>
+
+<span class="comment">//解码</span>
+- (instancetype)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder{
+<span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) {
+    <span class="keyword">self</span><span class="variable">.name</span> = [aDecoder decodeObjectForKey:<span class="string">@"name"</span>];
+    <span class="keyword">self</span><span class="variable">.address</span> = [aDecoder     decodeObjectForKey:<span class="string">@"address"</span>];
+    <span class="keyword">self</span><span class="variable">.age</span> = [aDecoder decodeIntegerForKey:<span class="string">@"age"</span>];
+}
+<span class="keyword">return</span> <span class="keyword">self</span>;
+}
+
+<span class="comment">// 编码</span>
+- (<span class="keyword">void</span>)encodeWithCoder:(<span class="built_in">NSCoder</span> *)aCoder{
+  [aCoder encodeObject:_name forKey:<span class="string">@"name"</span>];
+  [aCoder encodeObject:_address forKey:<span class="string">@"address"</span>];
+  [aCoder encodeInteger:_age forKey:<span class="string">@"age"</span>];
+}
+
+<span class="keyword">@end</span>
+
+
+<span class="comment">// 使用 归档，解档</span>
+- (<span class="keyword">void</span>)viewDidLoad{
+[<span class="keyword">super</span> viewDidLoad];
+<span class="keyword">self</span><span class="variable">.navigationItem</span><span class="variable">.title</span> = <span class="string">@"three"</span>;
+
+Person * Tom = [[Person alloc]init];
+Tom<span class="variable">.name</span> = <span class="string">@"tom"</span>;
+Tom<span class="variable">.address</span> =<span class="string">@"address"</span>;
+Tom<span class="variable">.age</span> = <span class="number">12</span>;
+
+Person * Gao = [[Person alloc]init];
+Gao<span class="variable">.name</span> = <span class="string">@"gao"</span>;
+Gao<span class="variable">.address</span> =<span class="string">@"address"</span>;
+Gao<span class="variable">.age</span> = <span class="number">12</span>;
+
+
+<span class="built_in">NSString</span> * homeDir =[<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCachesDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>)objectAtIndex:<span class="number">0</span>];
+<span class="built_in">NSString</span> * path1 = [homeDir stringByAppendingPathComponent:<span class="string">@"cacheFile"</span>];
+
+<span class="built_in">NSMutableData</span> * data =[[<span class="built_in">NSMutableData</span> alloc]init];
+<span class="built_in">NSKeyedArchiver</span> *archiver = [[<span class="built_in">NSKeyedArchiver</span> alloc]initForWritingWithMutableData:data];
+[archiver encodeObject:Tom forKey:<span class="string">@"Tom"</span>];
+[archiver encodeObject:Gao forKey:<span class="string">@"Gao"</span>];
+[archiver finishEncoding]; <span class="comment">// 结束归档</span>
+
+[data writeToFile:path1 atomically:<span class="literal">YES</span>];
+
+
+<span class="built_in">NSData</span> * data2 =[[<span class="built_in">NSData</span> alloc]initWithContentsOfFile:path1];
+<span class="built_in">NSKeyedUnarchiver</span> * unarchiver = [[<span class="built_in">NSKeyedUnarchiver</span> alloc]initForReadingWithData:data2];
+
+Person * tom = [unarchiver decodeObjectForKey:<span class="string">@"Tom"</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"tom.name =%@"</span>,tom<span class="variable">.name</span>);
+
+Person * gao = [unarchiver decodeObjectForKey:<span class="string">@"Gao"</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"gao.name =%@"</span>,gao<span class="variable">.name</span>);
 </code></pre><p>}</p>
 
       
@@ -260,18 +302,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/11/16/自定义对象的归档和解档/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/11/11/i-can-do-it/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">使用hexo写博客</div>
+    <a href="/2015/11/12/iOS-UINavigationBar-下方的黑线去掉/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS UINavigationBar 下方的黑线去掉</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -300,7 +333,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="iOS-UINavigationBar-下方的黑线去掉" data-title="iOS UINavigationBar 下方的黑线去掉" data-url="http://yoursite.com/2015/11/12/iOS-UINavigationBar-下方的黑线去掉/"></div>
+	<div class="ds-thread" data-thread-key="自定义对象的归档和解档" data-title="" data-url="http://yoursite.com/2015/11/16/自定义对象的归档和解档/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
