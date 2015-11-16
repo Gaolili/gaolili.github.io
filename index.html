@@ -198,7 +198,7 @@
   
     <div class="article-meta">
       <a href="/2015/11/16/自定义对象的归档和解档/" class="article-date">
-  	<time datetime="2015-11-16T08:53:01.000Z" itemprop="datePublished">2015-11-16</time>
+  	<time datetime="2015-11-16T09:00:03.000Z" itemprop="datePublished">2015-11-16</time>
 </a>
     </div>
   
@@ -207,85 +207,23 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/16/自定义对象的归档和解档/">自定义对象的归档和解档</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>title: 自定义对象的归档和解档<br>date: 2015-11-16 16:11:21</p>
-<blockquote>
+        <blockquote>
 <p>自定义对象进行归档必须实现NSCoding协议，在这个协议中必须实现两个方法</p>
 <p> -(void)encodeWithCoder:(NSCoder <em>)aCoder;通过给定的Archiver对消息接收者进行编码；<br>-(id)initWithCoder:(NSCoder </em>)aDecoder;从一个给定的Unarchiver的数据返回一个初始化对象</p>
 </blockquote>
-<pre><code><span class="preprocessor">#import <span class="title">&lt;Foundation/Foundation.h&gt;</span></span>
-
-<span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> : <span class="title">NSObject</span> &lt;<span class="title">NSCoding</span>&gt;</span>
-
-    <span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>)<span class="built_in">NSString</span>  * name;
-    <span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>)<span class="built_in">NSString</span>  * address;
-    <span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>)<span class="built_in">NSInteger</span>   age;
-
- <span class="keyword">@end</span>
-
- <span class="preprocessor">#import <span class="title">"Person.h"</span></span>
-
-<span class="class"><span class="keyword">@implementation</span> <span class="title">Person</span></span>
-
-<span class="comment">//解码</span>
-- (instancetype)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder{
-<span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) {
-    <span class="keyword">self</span><span class="variable">.name</span> = [aDecoder decodeObjectForKey:<span class="string">@"name"</span>];
-    <span class="keyword">self</span><span class="variable">.address</span> = [aDecoder     decodeObjectForKey:<span class="string">@"address"</span>];
-    <span class="keyword">self</span><span class="variable">.age</span> = [aDecoder decodeIntegerForKey:<span class="string">@"age"</span>];
-}
-<span class="keyword">return</span> <span class="keyword">self</span>;
-}
-
-<span class="comment">// 编码</span>
-- (<span class="keyword">void</span>)encodeWithCoder:(<span class="built_in">NSCoder</span> *)aCoder{
-  [aCoder encodeObject:_name forKey:<span class="string">@"name"</span>];
-  [aCoder encodeObject:_address forKey:<span class="string">@"address"</span>];
-  [aCoder encodeInteger:_age forKey:<span class="string">@"age"</span>];
-}
-
-<span class="keyword">@end</span>
-
-
-<span class="comment">// 使用 归档，解档</span>
-- (<span class="keyword">void</span>)viewDidLoad{
-[<span class="keyword">super</span> viewDidLoad];
-<span class="keyword">self</span><span class="variable">.navigationItem</span><span class="variable">.title</span> = <span class="string">@"three"</span>;
-
-Person * Tom = [[Person alloc]init];
-Tom<span class="variable">.name</span> = <span class="string">@"tom"</span>;
-Tom<span class="variable">.address</span> =<span class="string">@"address"</span>;
-Tom<span class="variable">.age</span> = <span class="number">12</span>;
-
-Person * Gao = [[Person alloc]init];
-Gao<span class="variable">.name</span> = <span class="string">@"gao"</span>;
-Gao<span class="variable">.address</span> =<span class="string">@"address"</span>;
-Gao<span class="variable">.age</span> = <span class="number">12</span>;
-
-
-<span class="built_in">NSString</span> * homeDir =[<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCachesDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>)objectAtIndex:<span class="number">0</span>];
-<span class="built_in">NSString</span> * path1 = [homeDir stringByAppendingPathComponent:<span class="string">@"cacheFile"</span>];
-
-<span class="built_in">NSMutableData</span> * data =[[<span class="built_in">NSMutableData</span> alloc]init];
-<span class="built_in">NSKeyedArchiver</span> *archiver = [[<span class="built_in">NSKeyedArchiver</span> alloc]initForWritingWithMutableData:data];
-[archiver encodeObject:Tom forKey:<span class="string">@"Tom"</span>];
-[archiver encodeObject:Gao forKey:<span class="string">@"Gao"</span>];
-[archiver finishEncoding]; <span class="comment">// 结束归档</span>
-
-[data writeToFile:path1 atomically:<span class="literal">YES</span>];
-
-
-<span class="built_in">NSData</span> * data2 =[[<span class="built_in">NSData</span> alloc]initWithContentsOfFile:path1];
-<span class="built_in">NSKeyedUnarchiver</span> * unarchiver = [[<span class="built_in">NSKeyedUnarchiver</span> alloc]initForReadingWithData:data2];
-
-Person * tom = [unarchiver decodeObjectForKey:<span class="string">@"Tom"</span>];
-<span class="built_in">NSLog</span>(<span class="string">@"tom.name =%@"</span>,tom<span class="variable">.name</span>);
-
-Person * gao = [unarchiver decodeObjectForKey:<span class="string">@"Gao"</span>];
-<span class="built_in">NSLog</span>(<span class="string">@"gao.name =%@"</span>,gao<span class="variable">.name</span>);
-</code></pre><p>}</p>
-
       
     </div>
     
@@ -294,6 +232,10 @@ Person * gao = [unarchiver decodeObjectForKey:<span class="string">@"Gao"</span>
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/11/16/自定义对象的归档和解档/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
