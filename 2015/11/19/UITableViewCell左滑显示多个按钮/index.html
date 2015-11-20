@@ -15,7 +15,7 @@ iOS8的协议多了一个方法，返回值是数组的tableView:editActionsForR
 <meta property="og:description" content="我们在使用一些应用的时候，在滑动一些联系人的某一行的时候，会出现删除、置顶、更多等等的按钮，在iOS8之前，我们都需要自己去实现。但是，到了iOS8，系统已经写好了，只需要一个代理方法和一个类就搞定了
 
 iOS8的协议多了一个方法，返回值是数组的tableView:editActionsForRowAtIndexPath:方法，我们可以在方法内部写好几个按钮，然后放到数组中返回，那些按钮的类就是U">
-<meta property="og:updated_time" content="2015-11-19T06:33:43.000Z">
+<meta property="og:updated_time" content="2015-11-20T08:48:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UITableViewCell左滑显示多个按钮">
 <meta name="twitter:description" content="我们在使用一些应用的时候，在滑动一些联系人的某一行的时候，会出现删除、置顶、更多等等的按钮，在iOS8之前，我们都需要自己去实现。但是，到了iOS8，系统已经写好了，只需要一个代理方法和一个类就搞定了
@@ -244,6 +244,7 @@ iOS8的协议多了一个方法，返回值是数组的tableView:editActionsForR
 </li>
 <li><p>注意：如果我们自己设定了一个或多个按钮，系统自带的删除按钮就消失了…</p>
 <p>直接上代码</p>
+<a id="more"></a>
 <ul>
 <li><p>(BOOL)tableView:(UITableView <em>)tableView canEditRowAtIndexPath:(NSIndexPath </em>)indexPath{<br>return YES;<br> }</p>
 </li>

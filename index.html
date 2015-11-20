@@ -232,20 +232,6 @@
 </li>
 <li><p>注意：如果我们自己设定了一个或多个按钮，系统自带的删除按钮就消失了…</p>
 <p>直接上代码</p>
-<ul>
-<li><p>(BOOL)tableView:(UITableView <em>)tableView canEditRowAtIndexPath:(NSIndexPath </em>)indexPath{<br>return YES;<br> }</p>
-</li>
-<li><p>(NSArray<uitableviewrowaction *=""> <em>)tableView:(UITableView </em>)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{</uitableviewrowaction></p>
-</li>
-</ul>
-<p>// 删除<br>UITableViewRowAction <em> deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@”delete” handler:^(UITableViewRowAction </em> _Nonnull action, NSIndexPath * _Nonnull indexPath) {<br>   NSLog(@”delete”);<br>}];<br>deleteRowAction.backgroundColor = [UIColor blueColor]; //自定义按钮的背景</p>
-<p>// 置顶<br>UITableViewRowAction <em> topRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@”top” handler:^(UITableViewRowAction </em> _Nonnull action, NSIndexPath * _Nonnull indexPath) {<br>   NSLog(@”top”);<br>}];</p>
-<p>// 更多<br>UITableViewRowAction <em> moreRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@”more” handler:^(UITableViewRowAction </em> _Nonnull action, NSIndexPath * _Nonnull indexPath) {<br>   NSLog(@”more”);<br>}];</p>
-<p>// 返回多个按钮<br>return @[deleteRowAction,topRowAction,moreRowAction];</p>
-<p>}</p>
-</li>
-</ol>
-
       
     </div>
     
@@ -254,6 +240,10 @@
       
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/11/19/UITableViewCell左滑显示多个按钮/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
